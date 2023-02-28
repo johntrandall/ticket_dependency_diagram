@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require 'byebug'
+require './lib/ticket_dependency_diagram'
+
+gitlab_remote_ids = { group_id: ARGV[0],
+                      project_id: ARGV[1],
+                      epic_id: ARGV[2] }
+_, _, _, *options = ARGV
+
+TicketDependencyDiagram.perform(gitlab_remote_ids: gitlab_remote_ids)
